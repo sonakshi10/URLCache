@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>URLCache</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <script>
+        
+
+    $(function(){
+      $('.ui.dropdown')
+  .dropdown();
+    });
+    </script>
+    <script src="http://semantic-ui.com/javascript/library/jquery.min.js"></script>
+    <script src="http://semantic-ui.com/javascript/library/history.js"></script>
+    <script src="http://semantic-ui.com/javascript/library/easing.js"></script>
+    <script src="http://semantic-ui.com/javascript/library/ace/ace.js"></script>
+    <script src="http://semantic-ui.com/javascript/library/tablesort.js"></script>
+    <script src="http://semantic-ui.com/javascript/library/waypoints.js"></script>
+    <script src="http://semantic-ui.com/build/packaged/javascript/semantic.min.js"></script>
+    <script src="http://semantic-ui.com/javascript/semantic.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+    <style type="text/css">
+      body {
+        color: rgb(85, 85, 85);
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+      img {
+    max-width: 100%;
+    max-height: 100%;
+}/*
+    .image{
+      max-width: 100%;
+      max-height: 40px;
+    }*/
+
+      #desktopGrid{
+        display: block;
+      }
+
+      @media (max-width: 767px){
+        #desktopGrid{
+          display: none;
+        }
+      }
+
+      .ui.borderless.menu {
+        margin-top: 0;
+      }
+
+      .ui.inverted.pointing.menu .active.item:after {
+        background-color: white !important;
+      }
+
+      .ui.basic.segment {
+        padding-top: 4rem;
+      }
+
+      .ui.basic.segment > .ui.huge.header {
+        font-size: 54px;
+      }
+
+      .eleven.wide.column {
+        font-size: 18px;
+      }
+
+      .four.wide.column .ui.secondary.segment {
+        border: none;
+      }
+
+      footer.ui.segment {
+        margin-bottom: 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      /* blockquote styles comes from bootstrap */
+      blockquote {
+        padding: 0.6rem 1rem 0.4rem;
+        margin: 0 0 0.8rem;
+        border-left: 5px solid #eeeeee;
+      }
+
+      blockquote p {
+        line-height: 1.2rem;
+        margin-bottom: 0.3rem;
+        text-align: start !important;
+      }
+
+      blockquote p:last-child {
+        margin-bottom: 0;
+      }
+
+      blockquote ul:last-child,
+      blockquote ol:last-child {
+        margin-bottom: 0;
+      }
+
+      blockquote footer,
+      blockquote small,
+      blockquote .small {
+        margin-bottom: 0.5rem;
+        display: block;
+        font-size: 80%;
+        line-height: 1.42857;
+        color: #999;
+        padding: 0;
+      }
+
+      blockquote footer:before,
+      blockquote small:before,
+      blockquote .small:before {
+        content: "— ";
+      }
+
+      blockquote cite:before {
+        content: "«";
+      }
+
+      blockquote cite:after {
+        content: "»";
+      }
+
+      .dimmed.dimmable > .ui.animating.dimmer, .dimmed.dimmable > .ui.visible.dimmer, .ui.active.dimmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui.modal,
+.ui.active.modal {
+  margin: 0 auto!important;
+  top: auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease .5s;
+}
+
+    </style>
+
+
+
+  <script>
+  $(document)
+    .ready(function() {
+
+      $('#btnModal').click(function() {
+        $('.ui.modal').modal('show');
+      });
+    })
+  ;
+
+  
+  </script>
+
+
+
+
+
+  </head>
+
+  <body id="root">
+    
+    {% block content %}
+    {% endblock %}
+
+      </body>
+    
+</html>

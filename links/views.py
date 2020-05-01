@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from links.models import Link
+from django.http import HttpResponse, HttpResponseRedirect
 from links.forms import LinkForm
 import requests
 from bs4 import BeautifulSoup
@@ -11,6 +12,12 @@ def link_list(request):
 	links = Link.objects.all()
 	atags = Link.tags.all()
 	form = LinkForm(request.POST)
+	context = {
+		'tag':"All",
+		'links': links,
+		'tags':	atags,
+		'form': form,
+	}
 	if(form.is_valid()):
 		newlink = form.save(commit=False)
 		page = requests.get(newlink.url)
@@ -20,7 +27,7 @@ def link_list(request):
 		images=soup.findAll('img')
 		if len(images) == 0:
 			newlink.image_url="https://dummyimage.com/vga"
-		if len(images) >= 2:
+		elif len(images) >= 2:
 			newlink.image_url=images[1]['src']
 		# print(images[0]['src'])
 		else:
@@ -29,13 +36,8 @@ def link_list(request):
 		
 		newlink.save()
 		form.save_m2m()
+		return HttpResponseRedirect('/',context)
 	
-	context = {
-		'tag':"All",
-		'links': links,
-		'tags':	atags,
-		'form': form,
-	}
 	return render(request,'links/link_list.html',context)
 
 def tagged(request,slug):
@@ -43,6 +45,12 @@ def tagged(request,slug):
 	atags = Link.tags.all()
 	links=Link.objects.filter(tags=tag)
 	form = LinkForm(request.POST)
+	context = {
+		'tag':tag,
+		'tags':atags,
+		'links':links,
+		'form': form,
+   	}
 	if(form.is_valid()):
 		newlink = form.save(commit=False)
 		page = requests.get(newlink.url)
@@ -52,7 +60,7 @@ def tagged(request,slug):
 		images=soup.findAll('img')
 		if len(images) == 0:
 			newlink.image_url="https://dummyimage.com/vga"
-		if len(images) >= 2:
+		elif len(images) >= 2:
 			newlink.image_url=images[1]['src']
 		# print(images[0]['src'])
 		else:
@@ -61,10 +69,6 @@ def tagged(request,slug):
 		
 		newlink.save()
 		form.save_m2m()
-	context = {
-		'tag':tag,
-		'tags':atags,
-		'links':links,
-		'form': form,
-   	}
+		return HttpResponseRedirect('/',context)
+	
 	return render(request, 'links/link_list.html', context)
