@@ -7,6 +7,9 @@
       <div class="ui container">
         <a class="header active item" href="/">Home</a>
         <a class="item" href="#root">About</a>
+        <div class="right menu">
+          <a class="ui item" href="/accounts/logout/">Logout</a>
+        </div>
       </div>
     </div>
 
@@ -35,6 +38,7 @@
     <div class="ui grid stackable container ">
       <div class="row" id="page-header">
         <div class="ui basic segment">
+          <h1>Hi, {{ author }}</h1>
           <h1 class="ui huge header">
             <div class="content">URLCache</div>
             <div class="sub header">
@@ -44,7 +48,7 @@
         </div>
       </div>
       
-      <div class="row" id="article">
+  <div class="row" id="article">
         <div class="eleven wide column">
           <h2 class="ui large header">
               <div class="content">{{tag}}</div>
@@ -57,13 +61,20 @@
                 <img src="{{link.image_url}}" style="width:100%;">
               </div>
               <div class="content">
+                <a href = {{link.url}}>
                 <div class= "header">{{link.title}}</div>
+              </a>
               </div>
               <div class="extra content">
                 <span>
                   {% for tag in link.tags.all %}
                     <a href="{% url 'tagged' tag.slug %}">{{tag}}</a>
                   {% endfor %}
+                  
+                </span>
+                <span class="right floated">
+                  
+                  <a href="{% url 'link_remove' pk=link.auto_increment_id %}"><i class="trash icon"></i></a>
                 </span>
               </div>
             </div> 
